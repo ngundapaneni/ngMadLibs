@@ -1,0 +1,33 @@
+.mainContainer{
+	height: 700px;
+	width: 600px;
+	border: 2px solid black;
+	margin-left: 300px;
+}
+
+.smiley {
+	border: 2px solid black;
+	width: 60px;
+	height: 50px;
+}
+
+.image {
+	height: 100px;
+}
+
+.automate {
+	font-size: 40px;
+	text-align: center;
+}
+
+.blank {
+	text-decoration: underline;
+	color: black;
+	font-weight: bold;
+}
+
+.userInput{
+	width: 85px;
+	padding: 15px;
+	height: 50px;
+}
