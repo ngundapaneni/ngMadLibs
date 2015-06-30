@@ -1,22 +1,25 @@
 .mainContainer{
-	height: 700px;
-	width: 600px;
+	height: 500px;
+	width: 700px;
 	border: 2px solid black;
 	margin-left: 300px;
 }
 
 .smiley {
 	border: 2px solid black;
-	width: 60px;
-	height: 50px;
+	display: inline-block;
 }
 
 .image {
 	height: 100px;
 }
 
+.madLibImg {
+	width:100%;
+}
+
 .automate {
-	font-size: 40px;
+	font-size: 20px;
 	text-align: center;
 }
 
@@ -26,8 +29,29 @@
 	font-weight: bold;
 }
 
+.container {
+	width: 100%;
+}
+
 .userInput{
-	width: 85px;
-	padding: 15px;
-	height: 50px;
+	display: inline-block;
+	padding: 20px;
+	height: 20px;
+}
+
+.results {
+	border-top:1px solid black;
+	padding-top : 30px;
+}
+
+.btn {
+	padding-left: 350px;
+}
+
+.reset {
+	padding-top: 30px;
+}
+
+.error {
+	color: red;
 }
