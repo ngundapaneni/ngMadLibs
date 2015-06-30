@@ -7,30 +7,79 @@
     <script src="controller/ngMadLib.js"></script>
   </head>
   <body ng-controller="ngMadLibController">
+      <form name="userInputForm" novalidate ng-submit="submit()">
   		<table class="mainContainer">
   			<tr>
   				<td class="smiley"><img class="image" src="images/mad-lib-happy-face.png"></img></td>
-				<td colspan="2" class="smiley"><img class="image" src="images/ng-mad-libs-logo.png"></img>
+				  <td colspan="2" class="smiley"><img class="image" src="images/ng-mad-libs-logo.png"></img>
 					<br/><span class="automate">AUTOMATE THIS!</span>
 				</td>
-  			</tr>
-        <tr><td class="userInput"><span>Enter Gender: </span><input type="text" ng-model="gender"></input></td></tr>
+        <tr><td class="userInput"><span>Enter Gender: </span><input type="text" ng-model="gender" required></input></td></tr>
   			<tr><td class="userInput" colspan="3">Provide the following words:</td></tr>
   			<tr>
-		  		<td class="userInput"><input type="text" ng-model="name"></input></td>
-		  		<td class="userInput"><input type="text" ng-model="jobTitle"></input></td>
-		  		<td class="userInput"><input type="text" ng-model="tediousTask"></input></td>
+		  		<td class="userInput"><input name="name" type="text" ng-model="name" required></input></td>
+		  		<td class="userInput"><input name="job" type="text" ng-model="jobTitle" required></input></td>
+		  		<td class="userInput"><input name="tedious" type="text" ng-model="tediousTask" required></input></td>
   			</tr>
   			<tr>
-  				<td class="userInput"><input type="text" ng-model="dirtyTask"></input></td>
-		  		<td class="userInput"><input type="text" ng-model="celebrity"></input></td>
-		  		<td class="userInput"><input type="text" ng-model="uselessSkill"></input></td>
+  				<td class="userInput"><input type="text" ng-model="dirtyTask" required></input></td>
+		  		<td class="userInput"><input type="text" ng-model="celebrity" required></input></td>
+		  		<td class="userInput"><input type="text" ng-model="uselessSkill" required></input></td>
 			</tr>
 			<tr>
-				<td class="userInput"><input type="text" ng-model="adjective"></input></td>
-		  		<td class="userInput"><input type="text" ng-model="obnoxiuousCelebrity"></input></td>
-		  		<td class="userInput"><input type="text" ng-model="hugeNumber"></input></td>
-  			</tr>	
+				<td class="userInput"><input type="text" ng-model="adjective" required></input></td>
+		  		<td class="userInput"><input type="text" ng-model="obnoxiuousCelebrity" required></input></td>
+		  		<td class="userInput"><input name="hugeNum" type="number" ng-model="hugeNumber" required></input></td>
+  		</tr>
+      <tr>
+          <td></td>
+          <td><input type="submit" value="Generate my MadLib"></input></td>
+      </tr>
+      </table>
+    </form>
+    <div ng-if="userInputForm.$submitted" ng-messages="userInputForm.gender.$error">
+            <span class="error" ng-message="required">Gender is required!</span></td>
+          </div>  
+          <div ng-if="userInputForm.$submitted" ng-messages="userInputForm.name.$error">
+            <span class="error" ng-message="required">Name is required!</span></td>
+          </div>
+          <div ng-if="userInputForm.$submitted" ng-messages="userInputForm.jobTitle.$error">
+            <span class="error" ng-message="required">Job Title is required!</span></td>
+          </div>
+          <div ng-if="userInputForm.$submitted" ng-messages="userInputForm.$tediousTask.$error">
+            <span class="error" ng-message="required">Tedious Task is required!</span></td>
+          </div>
+          <div ng-if="userInputForm.$submitted" ng-messages="userInputForm.dirtyTask.$error">
+            <span class="error" ng-message="required">Dirty Task is required!</span></td>
+          </div>
+          <div ng-if="userInputForm.$submitted" ng-messages="userInputForm.celebrity.$error">
+            <span class="error" ng-message="required">Celebrity is required!</span></td>
+          </div>
+          <div ng-if="userInputForm.$submitted" ng-messages="userInputForm.uselessSkill.$error">
+            <span class="error" ng-message="required">Useless Skill is required!</span></td>
+          </div>
+          <div ng-if="userInputForm.$submitted" ng-messages="userInputForm.adjective.$error">
+            <span class="error" ng-message="required">Adjective is required!</span></td>
+          </div>
+          <div ng-if="userInputForm.$submitted" ng-messages="userInputForm.obnoxiousCelebrity.$error">
+            <span class="error" ng-message="required">Obnoxious Celebrity is required!</span></td>
+          </div>
+          <div ng-if="userInputForm.$submitted" ng-messages="userInputForm.hugeNum.$error">
+            <span class="error" ng-message="required">Huge number is required!</span>
+            <span class="error" ng-message="number">It has to be a number</span>
+          </div>
+    <div ng-if="userInputForm.$submitted" ng-messages="userInputForm.hugeNum.$error">
+          <td><span class="error" ng-message="required">Huge number is required!</span></td>
+          <td><span class="error" ng-message="number">It has to be a number</span></td>
+    </div>
+    <form name="resultsForm" ng-show="">
+      <table class="mainContainer">
+        <tr>
+          <td class="smiley"><img class="image" src="images/mad-lib-happy-face.png"></img></td>
+        <td colspan="2" class="smiley"><img class="image" src="images/ng-mad-libs-logo.png"></img>
+          <br/><span class="automate">AUTOMATE THIS!</span>
+        </td>
+        </tr>	
   			<tr ng-switch="gender">
   				<td ng-switch-when="Female" colspan="3"  style="border-top:1px solid black;" ><span class="blank">{{name}}</span> was a <span class="blank">{{jobTitle}}</span> who loved technology. Although she loved parts of her job, she absolutely hated  <span class="blank">{{tediousTask}}</span> and <span class="blank">{{dirtyTask}}</span>. So, <span class="blank">{{name}}</span> met with her life mentor <span class="blank">{{celebrity}}</span> who told her to learn how to <span class="blank">{{uselessSkill}}</span> with Thinkful. Thinkful didn't offer a course on <span class="blank">{{uselessSkill}}</span> so she studied programming instead. 
  				What a great decision! With her new skills, <span class="blank">{{name}}</span> built a(n) <span class="blank">{{adjective}}</span> robot named <span class="blank">{{obnoxiuousCelebrity}}</span> that not only loved <span class="blank">{{dirtyTask}}</span> but did it <span class="blank">{{hugeNumber}}</span> faster. 
@@ -40,5 +89,6 @@
         </td>
         </tr>
   		</table>
+    </form>
   </body>
  </html>
